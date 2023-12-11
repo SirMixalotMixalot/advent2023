@@ -14,6 +14,18 @@ const char *DIGITS_AS_WORDS[10] = {
     "eight",
     "nine",
 };
+size_t DIGIT_LENGTHS[10] = {
+    4,
+    3,
+    3,
+    5,
+    4,
+    4,
+    3,
+    5,
+    5,
+    4,
+};
 int to_digit(char c)
 {
     if (c <= '9' && c >= '0')
@@ -25,7 +37,7 @@ int to_number(char *word)
 {
     for (int i = 0; i < 10; i++)
     {
-        if (strncmp(word, DIGITS_AS_WORDS[i], strlen(DIGITS_AS_WORDS[i])) == 0)
+        if (strncmp(word, DIGITS_AS_WORDS[i], DIGIT_LENGTHS[i]) == 0)
         {
             return i;
         }
