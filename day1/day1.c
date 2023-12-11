@@ -55,11 +55,15 @@ int main()
         for (; *line; line++)
         {
             int d_char = to_digit(*line);
-            int d_word = to_number(line);
+            int d_word;
             if (d_char != -1)
+            {
                 digit = d_char;
-            else if (d_word != -1)
+            }
+            else if ((d_word = to_number(line)) != -1)
+            {
                 digit = d_word;
+            }
         }
         sum += digit;
     }
